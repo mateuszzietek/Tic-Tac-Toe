@@ -2,8 +2,6 @@ import os
 
 clear = lambda: os.system('cls')
 
-print("			WELCOME TO TIC TAC TOE GAME!\n\nEnter your names and choose characters:\n")
-
 #______________________PLAYERS FUNCTION DEFINITION______________________________________
 
 def players ():
@@ -29,7 +27,7 @@ def players ():
 
 #______________________GAME FUNCTION DEFINITION______________________________________
 
-def game(score, competitors):
+def game(score, competitors, player_cont):
 	
 	clear()
 
@@ -41,7 +39,6 @@ def game(score, competitors):
 	lines_start = " | | \n | | \n | | "
 
 	#FLOW CONTROL
-	player_cont = 1
 	lines_start_control = 1
 	
 	#_________GAME LOOP___________
@@ -54,6 +51,7 @@ def game(score, competitors):
 		if lines_start_control == 1:    
 			clear()
 			print(lines_start)
+			#player_cont = 1
 			lines_start_control = 0
 		#_______________________________
 
@@ -171,7 +169,7 @@ def game(score, competitors):
 		
 		if decision.lower() == "y":
 
-			game(score, competitors)
+			game(score, competitors, player_cont)
 			
 		else:
 
@@ -180,11 +178,13 @@ def game(score, competitors):
 	return score
 
 
+print("			WELCOME TO TIC TAC TOE GAME!\n\nEnter your names and choose characters:\n")
+
 #______________________CALL THE GAME_________________________________    
 
 players_var = players()
 
-finalscore = game([0, 0], players_var)
+finalscore = game([0, 0], players_var, 1)
 
 clear()
 
