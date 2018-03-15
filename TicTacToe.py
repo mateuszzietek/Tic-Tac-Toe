@@ -51,13 +51,17 @@ def game(score, competitors, player_cont):
 		if lines_start_control == 1:    
 			clear()
 			print(lines_start)
-			#player_cont = 1
 			lines_start_control = 0
 		#_______________________________
 
 
 		# SELECT FIELD NUMBER
-		player_input = int(input("\nChoose field 1-9\n"))-1
+		if player_cont == 1:
+			print("\n", competitors["player1"][0], " pick the field!")
+			player_input = int(input("\nenter digit from 1 to 9\n"))-1
+		else:
+			print("\n", competitors["player2"][0], " pick the field!")
+			player_input = int(input("\nenter digit from 1 to 9\n"))-1
 
 		# CHECK IF SLECTED FIELD IS BETWEEN 1 AND 9
 		if player_input in range(0,9):
